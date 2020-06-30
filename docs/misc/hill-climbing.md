@@ -56,14 +56,13 @@
         cans[i] = 0;
         for (int j = 1; j <= n; j++)
           dis[i] += (f[i][j] - ans[j]) * (f[i][j] - ans[j]);
-        dis[i] = sqrt(dis[i]);  // 欧氏距离
         tot += dis[i];
       }
       tot /= (n + 1);  // 平均
       for (int i = 1; i <= n + 1; i++)
         for (int j = 1; j <= n; j++)
           cans[j] += (dis[i] - tot) * (f[i][j] - ans[j]) /
-                     tot;  // 对于每个维度把修改值更新掉，欧氏距离差*差值贡献
+                     tot;  // 对于每个维度把修改值更新掉，距离差*差值贡献
     }
     int main() {
       srand(seed);
